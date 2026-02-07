@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Journaling — Danalya</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="page-journaling">
+
+  <!-- 🌙 Moon -->
+  <div class="crescent-moon" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <path d="M78 10 A50 50 0 1 0 78 110 A36 50 0 1 1 78 10 Z"/>
+    </svg>
+  </div>
+
+  <div class="container">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="name">Danalya</div>
+        <div class="tag">journaling</div>
+      </div>
+
+      <nav class="nav">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="poetry.html">Poetry</a>
+        <a class="pill" href="novels.html">Novels</a>
+        <a class="pill" href="archive.html">Archive</a>
+      </nav>
+    </div>
+
+    <h1 class="site-title">Journaling</h1>
+    <div class="subtitle">Thoughts, days, and honesty.</div>
+
+    <hr/>
+
+    <!-- Post 1 -->
+    <article class="post">
+      <div class="post-date">February 5, 2026</div>
+      <p>
+     I don’t tell people what I truly feel.<br>
+Not because no one offers or reaches out <br>
+I just don’t think it matters.<br>
+I prefer to stay silent.<br>
+In some way, it’s a habit. And also a fear,<br>
+a fear of revealing my inner world.<br>
+A world filled with very sharp emotions, very intense ones,<br>
+with a lot of pain, wounds, scratches.<br>
+I prefer not to show it to the world.<br>
+I prefer to lock my mouth and keep the key to myself,<br>
+never giving it to anyone.<br>
+After many years of loneliness, not alone, but lonely <br>
+I don’t have the ability to speak, only to listen.<br>
+There is a choice in it, but it comes from fear.<br>
+I don’t have the ability to dare to speak.<br>
+In the end, it falls back on me.<br>
+Because my storage room fills and fills,<br>
+until it becomes too much.<br>
+So I prefer to disappear.<br>
+I truly prefer to stay silent.<br>
+I’m comfortable being the listener,<br>
+the one who gives a hand,<br>
+and then retreats into myself,<br>
+fighting my demons alone.<br>
+Those battles leave scratches,<br>
+and sharp pain.<br>
+But I truly prefer that the pain be only mine.<br>
+I don’t want to disturb anyone.<br>
+It doesn’t matter. Others might say it does <br>
+but that doesn’t change the way my mind sees things,<br>
+because it’s stuck in a loop of years.<br>
+I truly don’t know how to stop, how to speak, how to communicate.<br>
+It’s very heavy.<br>
+But I’ve learned to live with it.<br>
+And it’s okay. It’s really okay.<br>
+I don’t know if I’m lying to myself when I say that —<br>
+but still, it’s really, really okay.<br>
+I truly prefer to stay silent.<br>
+It’s more comfortable for me to be on the listening side,<br>
+with the smiling mask.<br>
+And when I need quiet, I simply step away for a moment,<br>
+and return as if nothing happened.<br>
+I might say genreally that my state wasn’t good in those moments <br>
+but I won’t share more than that.<br>
+I’m pretty sure I will always be on the listening side,<br>
+the one who gives advice.<br>
+At the end of the conversation they’ll say,<br>
+“Thank you, you really helped me.”<br>
+I’ll smile gently and say,<br>
+“No problem. I’m always here.”<br>
+I have a lot of empathy for the world around me.<br>
+Even though sometimes I’m very angry at it.<br>
+In my eyes, there are people who don’t behave properly <br>
+but I will never educate anyone.<br>
+It’s none of my business.<br>
+Everyone can live exactly as they want.<br>
+I simply won’t take part in that person’s world.<br>
+Every person carries a different world.<br>
+And maybe it’s also the environment’s fault that I feel this way <br>
+because many times when I did dare,<br>
+when I did speak,<br>
+when I did say what bothered me <br>
+I received a knife.<br>
+And I no longer have the strength for those stabs.<br>
+So I built the mask.<br>
+And probably, I will stay with it forever<br>
+      </p>
+
+      <div class="likebar" data-like-id="journal-1">
+        <button class="likebtn" type="button">
+          <span class="heart">🤍</span>
+          <span class="likecount">0</span>
+        </button>
+      </div>
+    </article>
+
+  
+
+    <footer>
+      <div><a class="back" href="index.html">← back home</a></div>
+      <div class="sig">last updated: February 7, 2026</div>
+    </footer>
+
+  </div>
+
+  <!-- ❤️ Likes script -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll("[data-like-id]");
+
+    bars.forEach(bar => {
+      const key = bar.dataset.likeId;
+      const btn = bar.querySelector(".likebtn");
+      const heart = bar.querySelector(".heart");
+      const countEl = bar.querySelector(".likecount");
+
+      if (!key || !btn) return;
+
+      const storageLiked = "liked_" + key;
+      const storageCount = "count_" + key;
+
+      let liked = localStorage.getItem(storageLiked) === "true";
+      let count = parseInt(localStorage.getItem(storageCount)) || 0;
+
+      function update(){
+        heart.textContent = liked ? "❤️" : "🤍";
+        countEl.textContent = count;
+      }
+
+      btn.addEventListener("click", () => {
+        if (liked) {
+          liked = false;
+          count--;
+        } else {
+          liked = true;
+          count++;
+        }
+        localStorage.setItem(storageLiked, liked);
+        localStorage.setItem(storageCount, count);
+        update();
+      });
+
+      update();
+    });
+  });
+  </script>
+
+</body>
+</html>

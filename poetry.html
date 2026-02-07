@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poetry — Danalyа</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="likes.js"></script>
+</head>
+<div class="crescent-moon" aria-hidden="true">
+  <svg viewBox="0 0 120 120">
+    <!-- crescent -->
+    <path d="M78 10 A50 50 0 1 0 78 110 A36 50 0 1 1 78 10 Z"/>
+  </svg>
+</div>
+
+<body class="page-poetry">
+  <div class="container">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="name">Danalyа</div>
+        <div class="tag">poetry</div>
+      </div>
+      <nav class="nav">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="journaling.html">Journaling</a>
+        <a class="pill" href="novels.html">Novels</a>
+        <a class="pill" href="archive.html">Archive</a>
+      </nav>
+    </div>
+
+    <h1 class="site-title">Poetry</h1>
+    <div class="subtitle">Emotions.</div>
+
+    <hr/>
+
+    <!-- Poem 1 -->
+    <article class="post" id="p-2026-02-05">
+      <div class="post-date">February 5, 2026</div>
+      <p class="poem">
+       The sea<br>
+is beautiful<br>
+pleasant and infinite<br>
+it seems inviting<br>
+<br>
+But sometimes<br>
+the sea<br>
+feels like a trap<br>
+it’s unpredictable<br>
+<br>
+The sea<br>
+has mood swings<br>
+unexpected ones<br>
+sometimes it's stormy<br>
+and sometimes it's calm<br>
+<br>
+The question is<br>
+can you trust it?<br>
+In my eyes,<br>
+people who trust the sea<br>
+are people who trust easily<br>
+<br>
+Because<br>
+the sea is indeed beautiful and pleasant<br>
+but will you come back from it?<br>
+<br>
+The sea<br>
+reminds me a little of my mind<br>
+sometimes<br>
+it can be calm and peaceful<br>
+but in an unexpected moment<br>
+thoughts become stormy<br>
+<br>
+And then<br>
+I feel<br>
+like I’m drowning<br>
+deep down<br>
+struggling<br>
+to come back up<br>
+and breathe<br>
+<br>
+The waves<br>
+are the thoughts<br>
+they can be<br>
+very wild<br>
+and pull me<br>
+even deeper<br>
+just like the sea<br>
+<br>
+I hope<br>
+that one day<br>
+I’ll be able<br>
+to trust my mind
+like the sea.
+
+
+      </p>
+<div class="likebar" data-like-id="poem-1">
+  <button class="likebtn" type="button">
+    <span class="heart">🤍</span>
+    <span class="likecount">0</span>
+  </button>
+</div>
+
+    </article>
+
+
+    <footer>
+      <div><a class="back" href="index.html">← back home</a></div>
+      <div class="sig">last updated: February 7, 2026</div>
+    </footer>
+
+  </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bars = document.querySelectorAll("[data-like-id]");
+
+  bars.forEach(bar => {
+    const key = bar.dataset.likeId;
+    const btn = bar.querySelector(".likebtn");
+    const heart = bar.querySelector(".heart");
+    const countEl = bar.querySelector(".likecount");
+
+    if (!key || !btn) return;
+
+    const storageKeyLiked = "liked_" + key;
+    const storageKeyCount = "count_" + key;
+
+    let liked = localStorage.getItem(storageKeyLiked) === "true";
+    let count = parseInt(localStorage.getItem(storageKeyCount)) || 0;
+
+    function updateUI() {
+      heart.textContent = liked ? "❤️" : "🤍";
+      countEl.textContent = count;
+    }
+
+    btn.addEventListener("click", () => {
+      if (liked) {
+        count--;
+        liked = false;
+      } else {
+        count++;
+        liked = true;
+      }
+
+      localStorage.setItem(storageKeyLiked, liked);
+      localStorage.setItem(storageKeyCount, count);
+      updateUI();
+    });
+
+    updateUI();
+  });
+});
+</script>
+
+</body>
+</html>

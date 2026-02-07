@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>First text</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:#f6f6f4;
+      color:#1c1c1c;
+      line-height:1.8;
+    }
+    .container{
+      max-width:700px;
+      margin:80px auto;
+      padding:0 20px;
+    }
+    a{
+      color:#555;
+      text-decoration:none;
+      font-size:14px;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+    h1{
+      font-weight:400;
+      margin-top:40px;
+    }
+    .date{
+      color:#888;
+      font-size:14px;
+      margin-bottom:40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="index.html">← back</a>
+
+    <h1>First text</h1>
+    <div class="date">January 27, 2026</div>
+
+    <button id="likeBtn">♡ Like</button>
+<span id="likeCount">0</span>
+
+
+    <p>
+      This is where you write.
+      You don’t need to think about structure.
+      Just let the text exist.
+    </p>
+
+    <p>
+      Another paragraph.
+      Another breath.
+    </p>
+
+  </div>
+  <script>
+  const postId = "first-text"; // מזהה ייחודי לפוסט
+  const btn = document.getElementById("likeBtn");
+  const count = document.getElementById("likeCount");
+
+  let liked = localStorage.getItem(postId + "_liked") === "true";
+  let likes = parseInt(localStorage.getItem(postId + "_likes")) || 0;
+
+  function render(){
+    btn.textContent = liked ? "♥ Liked" : "♡ Like";
+    count.textContent = likes;
+  }
+
+  btn.addEventListener("click", () => {
+    if(liked){
+      likes--;
+      liked = false;
+    } else {
+      likes++;
+      liked = true;
+    }
+
+    localStorage.setItem(postId + "_liked", liked);
+    localStorage.setItem(postId + "_likes", likes);
+    render();
+  });
+
+  render();
+</script>
+
+
+
+</body>
+</html>

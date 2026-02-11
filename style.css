@@ -318,7 +318,10 @@ footer .sig{ font-style:italic; }
   filter: drop-shadow(0 14px 34px rgba(0,0,0,0.22));
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
+
+
+}
 
   .container{
     padding: 20px;
@@ -353,6 +356,25 @@ footer .sig{ font-style:italic; }
     top: 12px;
     right: 12px;
     opacity: 0.75;
+
   }
+  
+.hidden-text {
+  display: none;
+
+  
+}
+
+
+.post-content{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+
+.post-content.expanded{
+  -webkit-line-clamp: unset;
+  display: block;
 }
 
